@@ -1,3 +1,5 @@
+[fa=graduation cap=fa-4x,fa-spin /]
+
 # Module C++ du Tronc Commun de l'École 42
 
 ## Introduction
@@ -35,6 +37,4 @@ Mars 2024.
 
 Merci à l'équipe pédagogique de l'École 42 pour leur soutien et leur expertise.
 
-```
 Merci aux étudiants de l'École 42 pour leur aide et leur soutien.
-```
