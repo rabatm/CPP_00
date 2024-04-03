@@ -1,5 +1,13 @@
 #include <iostream>
 #include "Contact.class.hpp"
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <stdexcept>
+#include <iostream>
+#include <limits>
+#include "./utils.hpp"
+
 
 #ifndef PHONEBOOK_CLASS_H
 # define PHONEBOOK_CLASS_H
@@ -13,6 +21,7 @@ private:
 	int			_maxContacts;
 	void		ftExit() const;
 	void		askContactInfos(void);
+	void		searchContacts(void);
 
 public:
 	PhoneBook(int const maxContacts);

@@ -4,7 +4,7 @@ SRCSDIR 	= .
 OBJDIR 		= objs
 INCLUDES 	= .
 
-SRCFILES	= main.cpp PhoneBook.class.cpp Contact.class.cpp
+SRCFILES	= main.cpp PhoneBook.class.cpp Contact.class.cpp utils.cpp
 OBJS        = $(addprefix $(OBJDIR)/, $(SRCFILES:.cpp=.o))
 
 CC			= g++

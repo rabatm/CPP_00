@@ -1,4 +1,5 @@
 #include "./Contact.class.hpp"
+#include "utils.hpp"
 
 Contact::Contact(void)
 {
@@ -10,32 +11,26 @@ Contact::~Contact(void)
 	return;
 }
 
-std::string formatDisplay(std::string info)
-{
-	std::string newString;
-
-	if (info.length() >= 10)
-		newString = info.substr(0,9) + ".|"; 
-	else
-		newString = info.insert(0, 10 - info.length(), ' ') + "|";
-		return newString;
-}
 std::string askInfo(std::string infoDisplay)
 {
 	std::string inputInfo;
 
 	do
 	{
-		std::cout << "What is the " + infoDisplay << std::endl;
+		std::cout << infoDisplay + " : ";
 		std::getline(std::cin, inputInfo);
 		if(inputInfo.empty())
 			std::cout << "NO EMPTY INFO PLEASE 🌧️ " + infoDisplay << std::endl;
+		std::cout << std::endl;
 	} while (inputInfo.empty());
 	return inputInfo;
 }
 
 void Contact::askContactInfos(int newId)
 {
+
+	std::string items[] = {"", "All information is mandatory ..", ""};
+	menuDisplay(" ++++ Add menu ++++ ", items, 3);
 	this->_myId = newId;
 	this->_firstName = askInfo("firstname");
 	this->_lastName = askInfo("lastname");
@@ -46,10 +41,8 @@ void Contact::askContactInfos(int newId)
 
 void Contact::displayMyInfos() const
 {
-	std::cout << formatDisplay(std::to_string(this->_myId)); 
+	std::cout << "|" + formatDisplay(std::to_string(this->_myId)); 
 	std::cout << formatDisplay(this->_firstName); 
 	std::cout << formatDisplay(this->_lastName);
-	std::cout << formatDisplay(this->_nickName);
-	std::cout << formatDisplay(this->_phoneNumber);
-	std::cout << formatDisplay(this->_darkSecret) << std::endl;
+	std::cout << formatDisplay(this->_nickName) << std::endl;
 }
