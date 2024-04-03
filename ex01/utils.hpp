@@ -7,8 +7,12 @@ fichier qui contients toutes les fonctions communes au projet.
 #include <string>
 
 std::string formatDisplay(std::string info);
-void menuDisplay(std::string titleMenu, std::string* menuItem, int size);
-void displayLine(int size);
-std::string center(const std::string &text);
+std::string center(const std::string &text, int width);
+std::string toString(int myInt);
+int 		stringToInt (std::string myString);
+void 		menuDisplay(std::string titleMenu, std::string* menuItem, int size);
+void 		displayLine(int size);
+void 		displayPause();
+
 
 #endif

@@ -19,6 +19,7 @@ public:
 
 	//fonctions
 	void	displayMyInfos(void) const;
+	void	displayMyProfil() const;
 	void	askContactInfos(int newId);
 	
 };

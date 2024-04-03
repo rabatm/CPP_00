@@ -12,9 +12,8 @@ std::string formatDisplay(std::string info)
     return newString + "|";
 }
 
-std::string center(const std::string &text)
+std::string center(const std::string &text, int width)
 {
-    int width = 46;
     int len = text.length();
     if(width < len) { return text; }
 
@@ -22,7 +21,7 @@ std::string center(const std::string &text)
     int pad1 = diff/2;
     int pad2 = diff - pad1;
 
-    return "|" + std::string(pad1, ' ') + text + std::string(pad2, ' ') + "|";
+    return "|" + std::string(pad1, ' ') + text + std::string(pad2, ' ');
 }
 
 
@@ -34,7 +33,7 @@ std::string formatMenu(std::string info)
 void menuDisplay(std::string titleMenu, std::string* menuItem, int size)
 {
     std::cout << " ---------------------------------------------- " << std::endl;
-    std::cout << center(titleMenu) << std::endl;
+    std::cout << center(titleMenu, 46) + "|" << std::endl;
     for(int i = 0; i < size; i++)
     {
         std::cout << formatMenu(menuItem[i]) << std::endl;
@@ -48,4 +47,28 @@ void displayLine(int size)
     while (size-- > 0 )
         std::cout << "-";
     std::cout << " " << std::endl;
+}
+
+void displayPause()
+{
+
+    std::cout << std::endl << "Press Enter to continue..." << std::endl;
+    std::string temp;
+    std::getline(std::cin, temp);
+}
+
+std::string toString(int myInt)
+{
+    std::stringstream ss;
+	ss << myInt;
+
+    return ss.str();
+}
+
+int stringToInt (std::string myString)
+{
+    std::stringstream ss(myString);
+    int id;
+    ss >> id;
+    return id;
 }

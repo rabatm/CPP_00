@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <stdexcept>
 #include <iostream>
+#include <sstream>
 #include <limits>
 #include "./utils.hpp"
 
@@ -16,12 +17,12 @@
 class PhoneBook
 {
 private:
-	Contact		_myContact[8];
+	Contact		_myContact[9];
+	int			_currentContacts;
 	int			_nbContacts;
 	int			_maxContacts;
-	void		ftExit() const;
-	void		askContactInfos(void);
 	void		searchContacts(void);
+	void 		displayContactInfo(const std::string& searchID);
 
 public:
 	PhoneBook(int const maxContacts);
