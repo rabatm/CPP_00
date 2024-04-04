@@ -1,10 +1,8 @@
 #include <iostream>
 #include "Contact.class.hpp"
-#include <iostream>
 #include <string>
 #include <iomanip>
 #include <stdexcept>
-#include <iostream>
 #include <sstream>
 #include <limits>
 #include "./utils.hpp"
