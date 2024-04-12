@@ -40,6 +40,16 @@
     "tuple": "cpp",
     "typeinfo": "cpp",
     "variant": "cpp",
-    "algorithm": "cpp"
+    "algorithm": "cpp",
+    "fstream": "cpp",
+    "__hash_table": "cpp",
+    "__node_handle": "cpp",
+    "__split_buffer": "cpp",
+    "__tree": "cpp",
+    "array": "cpp",
+    "map": "cpp",
+    "optional": "cpp",
+    "unordered_map": "cpp",
+    "vector": "cpp"
   }
 }

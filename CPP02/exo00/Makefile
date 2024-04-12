@@ -1,10 +1,10 @@
 #info of application
-NAME 		= Zombie
+NAME 		= Fixed
 SRCSDIR 	= .
 OBJDIR 		= objs
 INCLUDES 	= .
 
-SRCFILES	= ZombieHorde.cpp Zombie.cpp  main.cpp
+SRCFILES	= Fixed.cpp main.cpp
 OBJS        = $(addprefix $(OBJDIR)/, $(SRCFILES:.cpp=.o))
 
 CC			= c++

@@ -8,7 +8,7 @@
 class Harl {
 private:
     typedef void (Harl::*ComplainFunctionPtr)();
-    std::map<std::string, ComplainFunctionPtr> complainMap_;
+    std::map<std::string, ComplainFunctionPtr> _complainMap;
 
     void debug();
     void info();

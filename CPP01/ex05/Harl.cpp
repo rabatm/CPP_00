@@ -23,10 +23,9 @@ void Harl::error() {
 }
 
 void Harl::complain(const std::string& level) {
-    std::map<std::string, ComplainFunctionPtr>::iterator iter = complainMap_.find(level);
+    std::map<std::string, ComplainFunctionPtr>::iterator iter = _complainMap.find(level);
 
-    if (iter != complainMap_.end()) {
-        // Invoke the member function using the pointer and 'this' keyword
+    if (iter != _complainMap.end()) {
         (this->*(iter->second))();
     } else {
         std::cout << "[ Probably complaining about insignificant problems ]\n";

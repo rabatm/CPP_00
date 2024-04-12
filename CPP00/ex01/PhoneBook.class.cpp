@@ -87,35 +87,31 @@ void PhoneBook::searchContacts(void)
 
 void PhoneBook::showMenu(void)
 {
-	std::string theChoice;
+	std::string theChoice = "";
 	std::string menuItems[] = {" ","ADD    - for add a contact", "SEARCH - for looking for a contact ", "EXIT   - for bye bye", ""};
+	
 	menuDisplay(" +++++ PhoneBook Menu ++++", menuItems, 4);
 	std::cout << "Your choice -> ";
 	std::getline(std::cin, theChoice);
 
-	if (theChoice == "ADD")
+	while (theChoice != "EXIT")
 	{
-		if (this->_currentContacts == 8)
-			this->_currentContacts = 1;
-		else
-			this->_currentContacts++;
-		if (this->_nbContacts != this->_maxContacts)
-			this->_nbContacts++;
-		this->_myContact[this->_currentContacts].askContactInfos(this->_currentContacts);
-				std::cout << getMaxContacts() << std::endl;
+		if (theChoice == "ADD")
+		{
+			if (this->_currentContacts == 8)
+				this->_currentContacts = 1;
+			else
+				this->_currentContacts++;
+			if (this->_nbContacts != this->_maxContacts)
+				this->_nbContacts++;
+				this->_myContact[this->_currentContacts].askContactInfos(this->_currentContacts);
+					std::cout << getMaxContacts() << std::endl;
+		}
+		else if (theChoice == "SEARCH")
+			this->searchContacts();
+		else if (theChoice == "EXIT")
+			return;
 	}
-	else if (theChoice == "SEARCH")
-		this->searchContacts();
-	else if (theChoice == "EXIT")
-		return;
-	else
-	{
-		displayLine(60);
-		std::cout << "!!!!! NO UNDERSTAND !!!!" << std::endl;
-		displayLine(60);
-		displayPause();
 
-	}
-	showMenu();
 }
 
