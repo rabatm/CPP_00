@@ -27,8 +27,8 @@ class Fixed {
 		Fixed	operator*( const Fixed &rhs ) const;
 		Fixed	operator/( const Fixed &rhs ) const;
 		//------------------ Increment/Decrement operators ------------------//
-		Fixed	operator++( void ) const;
-		Fixed	operator--( void ) const;
+		Fixed	operator++( void );
+		Fixed	operator--( void );
 		Fixed	operator++( int );
 		Fixed	operator--( int );
 		Fixed	operator+=( const Fixed &rhs );
