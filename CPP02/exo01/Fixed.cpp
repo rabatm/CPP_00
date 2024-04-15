@@ -62,3 +62,64 @@ int Fixed::toInt( void ) const
 {
     return _value >> _nbBits;
 }
+//----------------- Comparison operators -----------------//
+		bool	Fixed::operator=( const Fixed &rhs )
+		{
+			return this->getRawBits() > rhs.getRawBits();
+		}
+		bool	Fixed::operator>( const Fixed &rhs ) const
+		{
+			return this->getRawBits() > rhs.getRawBits();
+		}
+		bool	Fixed::operator<( const Fixed &rhs ) const
+		{
+			return this->getRawBits() < rhs.getRawBits();
+		}
+		bool	Fixed::operator>=( const Fixed &rhs ) const
+		{
+			return this->getRawBits() >= rhs.getRawBits();
+		}
+		bool	Fixed::operator<=( const Fixed &rhs ) const
+		{
+			return this->getRawBits() <= rhs.getRawBits();
+		}
+		bool	Fixed::operator==( const Fixed &rhs ) const
+		{
+			return this->getRawBits() == rhs.getRawBits();
+		}
+		bool	Fixed::operator!=( const Fixed &rhs ) const
+		{
+			return this->getRawBits() != rhs.getRawBits();
+		}
+		//------------------ Arithmetic operators ------------------//
+		Fixed	Fixed::operator+( const Fixed &rhs ) const
+		{
+			return this->getRawBits() + rhs.getRawBits();
+		}
+		Fixed	Fixed::operator-( const Fixed &rhs ) const
+		{
+			return this->getRawBits() - rhs.getRawBits();
+		}
+		Fixed	Fixed::operator*( const Fixed &rhs ) const
+		{
+			return this->getRawBits() * rhs.getRawBits();
+		}
+		Fixed	Fixed::operator/( const Fixed &rhs ) const
+		{
+			return this->getRawBits() / rhs.getRawBits();
+		}	
+		Fixed	Fixed::operator++( void )
+		{
+			return this->getRawBits() + 1;
+		}
+		Fixed	Fixed::operator--( void );
+		Fixed	Fixed::operator++( int );
+		Fixed	Fixed::operator--( int );
+		Fixed	Fixed::operator+=( const Fixed &rhs );
+		Fixed	Fixed::operator-=( const Fixed &rhs );
+		Fixed	Fixed::operator*=( const Fixed &rhs );
+		Fixed	Fixed::operator/=( const Fixed &rhs );
+		static Fixed& min( Fixed &a, Fixed &b );
+		static Fixed& max( Fixed &a, Fixed &b );
+		static Fixed const& min( Fixed const &a, Fixed const &b );
+		static Fixed const& max( Fixed const &a, Fixed const &b );
