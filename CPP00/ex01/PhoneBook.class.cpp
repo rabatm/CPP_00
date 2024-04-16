@@ -6,7 +6,7 @@
 /*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 15:50:42 by mrabat            #+#    #+#             */
-/*   Updated: 2024/04/16 15:59:06 by mrabat           ###   ########.fr       */
+/*   Updated: 2024/04/16 16:05:31 by mrabat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,12 @@ void PhoneBook::showMenu(void)
 			this->searchContacts();
 		else if (theChoice == "EXIT")
 			return;
+		else
+		{
+			displayLine(60);
+			std::cout << "🤔 Invalid choice. 🤔" << std::endl;
+			displayLine(60);
+		}
 	}
 
 }
