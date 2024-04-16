@@ -7,7 +7,7 @@ INCLUDES 	= .
 SRCFILES	= megaphone.cpp
 OBJS        = $(addprefix $(OBJDIR)/, $(SRCFILES:.cpp=.o))
 
-CC			= g++
+CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)

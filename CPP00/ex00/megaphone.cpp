@@ -11,9 +11,6 @@ struct to_upper {
 
 int main(int argc, char *argv[])
 {
-	(void)argv;
-	(void)argc;
-
 	std::string str = "";
 	if (argc == 1)
 		str = "* LOUD AND UNBEARABLE FEEDBACK NOISE *";

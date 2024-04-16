@@ -7,9 +7,9 @@ INCLUDES 	= .
 SRCFILES	= main.cpp PhoneBook.class.cpp Contact.class.cpp utils.cpp
 OBJS        = $(addprefix $(OBJDIR)/, $(SRCFILES:.cpp=.o))
 
-CC			= g++
-CFLAGS		= -std=c++98
-##-Wall -Wextra -Werror 
+CC			= c++
+CFLAGS		= -std=c++98 -Wall -Wextra -Werror 
+
 all: $(NAME)
 
 $(NAME): $(OBJS)

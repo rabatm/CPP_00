@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.class.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/16 15:50:42 by mrabat            #+#    #+#             */
+/*   Updated: 2024/04/16 15:59:06 by mrabat           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./PhoneBook.class.hpp"
 
-PhoneBook::PhoneBook( int const maxContacts) : _maxContacts(maxContacts),  _nbContacts(0), _currentContacts(0)
+PhoneBook::PhoneBook( int const maxContacts) : _currentContacts(0), _nbContacts(0), _maxContacts(maxContacts)
 {
 	
 	std::string items[] = {"", "Forget your smartphone ", "this old-school phonebook", "is the only way to connect in 1998", "©  MRABAT ", ""};
@@ -81,8 +93,6 @@ void PhoneBook::searchContacts(void)
 		displayPause();
 		return;
 	}
-	searchContacts();
-
 }
 
 void PhoneBook::showMenu(void)
@@ -90,12 +100,11 @@ void PhoneBook::showMenu(void)
 	std::string theChoice = "";
 	std::string menuItems[] = {" ","ADD    - for add a contact", "SEARCH - for looking for a contact ", "EXIT   - for bye bye", ""};
 	
-	menuDisplay(" +++++ PhoneBook Menu ++++", menuItems, 4);
-	std::cout << "Your choice -> ";
-	std::getline(std::cin, theChoice);
-
 	while (theChoice != "EXIT")
 	{
+		menuDisplay(" +++++ PhoneBook Menu ++++", menuItems, 4);
+		std::cout << "Your choice -> ";
+		std::getline(std::cin, theChoice);
 		if (theChoice == "ADD")
 		{
 			if (this->_currentContacts == 8)
@@ -105,7 +114,6 @@ void PhoneBook::showMenu(void)
 			if (this->_nbContacts != this->_maxContacts)
 				this->_nbContacts++;
 				this->_myContact[this->_currentContacts].askContactInfos(this->_currentContacts);
-					std::cout << getMaxContacts() << std::endl;
 		}
 		else if (theChoice == "SEARCH")
 			this->searchContacts();
