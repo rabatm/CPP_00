@@ -51,6 +51,7 @@
     "optional": "cpp",
     "unordered_map": "cpp",
     "vector": "cpp",
-    "iterator": "cpp"
+    "iterator": "cpp",
+    "memory_resource": "cpp"
   }
 }
