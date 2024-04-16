@@ -6,7 +6,7 @@
 class Contact {
 private:
 	//attibut privee de la classe
-	std::int16_t _myId;
+	int _myId;
 	std::string	_firstName; 
 	std::string	_lastName; 
 	std::string	_nickName; 

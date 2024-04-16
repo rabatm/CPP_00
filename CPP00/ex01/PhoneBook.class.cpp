@@ -6,7 +6,7 @@
 /*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 15:50:42 by mrabat            #+#    #+#             */
-/*   Updated: 2024/04/16 16:05:31 by mrabat           ###   ########.fr       */
+/*   Updated: 2024/04/16 18:13:05 by mrabat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,10 @@ void PhoneBook::showMenu(void)
 			else
 				this->_currentContacts++;
 			if (this->_nbContacts != this->_maxContacts)
+			{
 				this->_nbContacts++;
-				this->_myContact[this->_currentContacts].askContactInfos(this->_currentContacts);
+			}
+			this->_myContact[this->_currentContacts].askContactInfos(this->_currentContacts);
 		}
 		else if (theChoice == "SEARCH")
 			this->searchContacts();

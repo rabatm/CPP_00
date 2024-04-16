@@ -69,7 +69,7 @@ void Contact::askContactInfos(int newId)
 
 void Contact::displayMyInfos() const
 {
-	std::cout << "|" + formatDisplay(std::to_string(this->_myId)); 
+	std::cout << "|" + formatDisplay(toString(this->_myId)); 
 	std::cout << formatDisplay(this->_firstName); 
 	std::cout << formatDisplay(this->_lastName);
 	std::cout << formatDisplay(this->_nickName) << std::endl;
