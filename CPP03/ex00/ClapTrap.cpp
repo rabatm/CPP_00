@@ -6,7 +6,7 @@
 /*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 18:46:24 by mrabat            #+#    #+#             */
-/*   Updated: 2024/04/16 19:06:08 by mrabat           ###   ########.fr       */
+/*   Updated: 2024/04/19 14:53:46 by mrabat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,10 @@ ClapTrap::ClapTrap(ClapTrap const &src)
 
 ClapTrap::~ClapTrap(void)
 {
-
 };
 
 void ClapTrap::attack(ClapTrap &target)
 {
 	target.takeDamage(this->_hitPoints);
+	target.
 }
-
-
