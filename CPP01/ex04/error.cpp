@@ -7,7 +7,7 @@ void printError(std::string message)
 
 bool fileExists(const std::string& filename)
 {
-	std::ifstream file(filename);
+	std::ifstream file(filename.c_str());
 	bool testFile = file.good();
 	file.close();
 	return testFile;

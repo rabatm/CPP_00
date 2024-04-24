@@ -1,10 +1,10 @@
 #include "Harl.hpp"
 
 Harl::Harl() {
-    complainMap_.insert(std::make_pair("DEBUG", &Harl::debug));
-    complainMap_.insert(std::make_pair("INFO", &Harl::info));
-    complainMap_.insert(std::make_pair("WARNING", &Harl::warning));
-    complainMap_.insert(std::make_pair("ERROR", &Harl::error));
+    _complainMap.insert(std::make_pair("DEBUG", &Harl::debug));
+    _complainMap.insert(std::make_pair("INFO", &Harl::info));
+    _complainMap.insert(std::make_pair("WARNING", &Harl::warning));
+    _complainMap.insert(std::make_pair("ERROR", &Harl::error));
 }
 void Harl::debug()
 {
