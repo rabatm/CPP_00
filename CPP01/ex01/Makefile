@@ -4,7 +4,11 @@ SRCSDIR 	= .
 OBJDIR 		= objs
 INCLUDES 	= .
 
+<<<<<<< HEAD
 SRCFILES	= Zombie.cpp main.cpp ZombieHorde.cpp
+=======
+SRCFILES	= Zombie.cpp ZombieHorde.cpp main.cpp
+>>>>>>> 6ab37caa1801f1142bf85d1dd1f96fbf3e5387ee
 OBJS        = $(addprefix $(OBJDIR)/, $(SRCFILES:.cpp=.o))
 
 CC			= c++

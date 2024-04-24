@@ -4,8 +4,8 @@ void readFileFindAndWrite(std::string fileName, std::string looking, std::string
 {
     std::string readString;
     std::string outputFileName = std::string(fileName + ".replace");
-    std::ifstream file(fileName);
-    std::ofstream outputFile(outputFileName);
+    std::ifstream file(fileName.c_str());
+    std::ofstream outputFile(outputFileName.c_str());
 
     while (std::getline(file, readString)) {
         size_t pos = readString.find(looking);
