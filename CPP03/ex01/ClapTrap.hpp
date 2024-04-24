@@ -6,7 +6,7 @@
 /*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 18:41:59 by mrabat            #+#    #+#             */
-/*   Updated: 2024/04/24 22:13:35 by mrabat           ###   ########.fr       */
+/*   Updated: 2024/04/24 22:25:52 by mrabat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class ClapTrap
 		void attack(ClapTrap &target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
+		std::string getName() const;
 
 	protected:
 		std::string _name;

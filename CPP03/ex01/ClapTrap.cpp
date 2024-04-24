@@ -6,7 +6,7 @@
 /*   By: mrabat <mrabat@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 18:46:24 by mrabat            #+#    #+#             */
-/*   Updated: 2024/04/24 22:40:39 by mrabat           ###   ########.fr       */
+/*   Updated: 2024/04/24 22:40:51 by mrabat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,8 @@ void ClapTrap::attack(ClapTrap &target)
 {
 	target.takeDamage(this->_hitPoints);
 	std::cout << "☢️" << this->_name << " attacks " << target._name << " causing " << this->_hitPoints << " points of damage 🔻" << std::endl;
+}
+std::string ClapTrap::getName(void) const
+{
+	return this->_name;
 }
