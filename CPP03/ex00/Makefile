@@ -1,10 +1,10 @@
 #info of application
-NAME 		= Fixed
+NAME 		= ClapTrap
 SRCSDIR 	= .
 OBJDIR 		= objs
 INCLUDES 	= .
 
-SRCFILES	= Fixed.cpp main.cpp
+SRCFILES	= ClapTrap.cpp main.cpp
 OBJS        = $(addprefix $(OBJDIR)/, $(SRCFILES:.cpp=.o))
 
 CC			= c++
