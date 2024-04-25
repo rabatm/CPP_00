@@ -2,8 +2,7 @@
 #include <iostream>
 #include <cmath>
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+#pragma once
 
 class Fixed {
 	private :
@@ -24,5 +23,3 @@ class Fixed {
 		float	toFloat( void ) const;
 		int 	toInt( void ) const;
 };
-
-#endif

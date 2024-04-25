@@ -1,162 +1,126 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed()
-{
+Fixed::Fixed() : _value(0) {
 	std::cout << "Default constructor called" << std::endl;
-	_value = 0;
 }
 
-Fixed::Fixed(const Fixed& originalFixed)
-{
-	std::cout << "Copy constructor called" << std::endl;
-	_value = originalFixed.getRawBits();
-}
-
-Fixed::Fixed(const int& newIntValue)
-{
+Fixed::Fixed(const int value) : _value(value << _fractionalBits) {
 	std::cout << "Int constructor called" << std::endl;
-	_value = newIntValue << _nbBits;
 }
 
-Fixed::Fixed(const float& newFloatValue)
-{
-	std::cout << "float constructor called" << std::endl;
-	_value = roundf(newFloatValue * (1 << _nbBits));
+Fixed::Fixed(const float value) : _value(roundf(value * (1 << _fractionalBits))) {
+	std::cout << "Float constructor called" << std::endl;
 }
 
-Fixed::~Fixed()
-{
+Fixed::Fixed(const Fixed &other) : _value(other._value) {
+	std::cout << "Copy constructor called" << std::endl;
+}
+
+Fixed::~Fixed() {
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed& Fixed::operator=( const Fixed &rhs )
-{
-	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &rhs)
-		_value = rhs.getRawBits();
-	return *this;
+int Fixed::getRawBits() const {
+    return _value;
 }
 
-std::ostream& operator<<( std::ostream &o, Fixed const &myFixed )
-{
-	o << myFixed.toFloat();
-    return o;
+void Fixed::setRawBits(const int raw) {
+    _value = raw;
 }
 
-int		Fixed::getRawBits( void ) const
-{
-	return this->_value;
+float Fixed::toFloat() const {
+    return static_cast<float>(_value) / (1 << _fractionalBits);
 }
 
-void 	Fixed::setRawBits( int const raw)
-{
-	this->_value = raw;
+int Fixed::toInt() const {
+    return _value >> _fractionalBits;
 }
 
-float Fixed::toFloat( void ) const
-{
-	return (float)_value / (1 << _nbBits);
+Fixed &Fixed::operator=(const Fixed &other) {
+    if (this != &other)
+        _value = other._value;
+    return *this;
 }
 
-int Fixed::toInt( void ) const 
-{
-    return _value >> _nbBits;
+Fixed Fixed::operator+(const Fixed &other) const {
+    return Fixed(this->toFloat() + other.toFloat());
 }
-//----------------- Comparison operators -----------------//
-Fixed	Fixed::operator=( const Fixed &rhs )
-{
-	return this->setRawBits(rhs);
+
+Fixed Fixed::operator-(const Fixed &other) const {
+    return Fixed(this->toFloat() - other.toFloat());
 }
-bool	Fixed::operator>( const Fixed &rhs ) const
-{
-	return this->getRawBits() > rhs.getRawBits();
+
+Fixed Fixed::operator*(const Fixed &other) const {
+    return Fixed(this->toFloat() * other.toFloat());
 }
-bool	Fixed::operator<( const Fixed &rhs ) const
-{
-	return this->getRawBits() < rhs.getRawBits();
+
+Fixed Fixed::operator/(const Fixed &other) const {
+    return Fixed(this->toFloat() / other.toFloat());
 }
-bool	Fixed::operator>=( const Fixed &rhs ) const
-{
-	return this->getRawBits() >= rhs.getRawBits();
+
+Fixed &Fixed::operator++() {
+    _value++;
+    return *this;
 }
-bool	Fixed::operator<=( const Fixed &rhs ) const
-{
-	return this->getRawBits() <= rhs.getRawBits();
+
+Fixed Fixed::operator++(int) {
+    Fixed temp(*this);
+    ++(*this);
+    return temp;
 }
-bool	Fixed::operator==( const Fixed &rhs ) const
-{
-	return this->getRawBits() == rhs.getRawBits();
+
+Fixed &Fixed::operator--() {
+    _value--;
+    return *this;
 }
-bool	Fixed::operator!=( const Fixed &rhs ) const
-{
-	return this->getRawBits() != rhs.getRawBits();
+
+Fixed Fixed::operator--(int) {
+    Fixed temp(*this);
+    --(*this);
+    return temp;
 }
-//------------------ Arithmetic operators ------------------//
-Fixed	Fixed::operator+( const Fixed &rhs ) const
-{
-	return this->getRawBits() + rhs.getRawBits();
+
+bool Fixed::operator>(const Fixed &other) const {
+    return _value > other._value;
 }
-Fixed	Fixed::operator-( const Fixed &rhs ) const
-{
-	return this->getRawBits() - rhs.getRawBits();
+
+bool Fixed::operator<(const Fixed &other) const {
+    return _value < other._value;
 }
-Fixed	Fixed::operator*( const Fixed &rhs ) const
-{
-	return this->getRawBits() * rhs.getRawBits();
+
+bool Fixed::operator>=(const Fixed &other) const {
+    return _value >= other._value;
 }
-Fixed	Fixed::operator/( const Fixed &rhs ) const
-{
-	return this->getRawBits() / rhs.getRawBits();
-}	
-Fixed	Fixed::operator++( void )
-{
-	return this->getRawBits() + 1;
+
+bool Fixed::operator<=(const Fixed &other) const {
+    return _value <= other._value;
 }
-Fixed	Fixed::operator--( void )
-{
-	return this->getRawBits() - 1;
+
+bool Fixed::operator==(const Fixed &other) const {
+    return _value == other._value;
 }
-Fixed	Fixed::operator++( int )
-{
-	Fixed tmp = *this;
-	*this = this->getRawBits() + 1;
-	return tmp;
+
+bool Fixed::operator!=(const Fixed &other) const {
+    return _value != other._value;
 }
-Fixed	Fixed::operator--( int )
-{
-	Fixed tmp = *this;
-	*this = this->getRawBits() - 1;
-	return tmp;
+
+Fixed &Fixed::min(Fixed &a, Fixed &b) {
+    return (a < b) ? a : b;
 }
-Fixed	Fixed::operator+=( const Fixed &rhs )
-{
-	return this->getRawBits() + rhs.getRawBits();
+
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b) {
+    return (a < b) ? a : b;
 }
-Fixed	Fixed::operator-=( const Fixed &rhs )
-{
-	return this->getRawBits() - rhs.getRawBits();
+
+Fixed &Fixed::max(Fixed &a, Fixed &b) {
+    return (a > b) ? a : b;
 }
-Fixed	Fixed::operator*=( const Fixed &rhs )
-{
-		return this->getRawBits() * rhs.getRawBits();
+
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b) {
+    return (a > b) ? a : b;
 }
-Fixed	Fixed::operator/=( const Fixed &rhs )
-{
-	return this->getRawBits() / rhs.getRawBits();
-}
-static Fixed& min( Fixed &a, Fixed &b )
-{
-	return a.getRawBits() < b.getRawBits() ? a : b;
-}
-static Fixed& max( Fixed &a, Fixed &b )
-{
-	return a.getRawBits() > b.getRawBits() ? a : b;
-}
-static Fixed const& min( Fixed const &a, Fixed const &b )
-{
-	return a.getRawBits() < b.getRawBits() ? a : b;
-}
-static Fixed const& max( Fixed const &a, Fixed const &b )
-{
-	return a.getRawBits() > b.getRawBits() ? a : b;
+
+std::ostream &operator<<(std::ostream &out, const Fixed &fixed) {
+    out << fixed.toFloat();
+    return out;
 }

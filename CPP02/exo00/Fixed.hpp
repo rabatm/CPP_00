@@ -1,8 +1,7 @@
 #include <string>
 #include <iostream>
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+#pragma once
 
 class Fixed {
 	private :
@@ -18,5 +17,3 @@ class Fixed {
 		int		getRawBits( void ) const;
 		void	setRawBits( int const raw);
 };
-
-#endif
