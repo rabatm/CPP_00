@@ -4,7 +4,7 @@ SRCSDIR 	= .
 OBJDIR 		= objs
 INCLUDES 	= .
 
-SRCFILES	= Animal.cpp Cat.cpp Dog.cpp main.cpp
+SRCFILES	= Animal.cpp Cat.cpp Dog.cpp main.cpp WrongAnimal.cpp WrongCat.cpp
 OBJS        = $(addprefix $(OBJDIR)/, $(SRCFILES:.cpp=.o))
 
 CC			= c++
