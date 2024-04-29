@@ -1,6 +1,6 @@
 #include <iostream>
 
-#pragma one
+#pragma once
 
 class Animal
 {
@@ -9,16 +9,10 @@ protected:
 public:
 	Animal();
 	Animal(Animal const &other);
-	~Animal();
+	virtual ~Animal();
 
-	Animal operator=(Animal const &other);
-
+	Animal &operator=(Animal const &other);
+	virtual void makeSound() const;
+	std::string getType() const;
+	void setType(std::string type);
 };
-
-Animal::Animal(/* args */)
-{
-}
-
-Animal::~Animal()
-{
-}
